@@ -1,7 +1,13 @@
-
 <!DOCTYPE html>
-<html>
+<html>    
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <title>M3-D4</title>
     <!--
             You are creating the "shopping cart experience" for an Online Marketplace.
             From this API you can retrieve the list of the available books:
@@ -23,7 +29,99 @@
             9) Create a "Detail page" for the product. When the user clicks on a product name, the app should redirect him to the secondary page, passing the ASIN in query string
             10) In the detail page retrieve the ASIN from the query string and use it to fetch and show some details of the selected product (use this endpoint: https://striveschool-api.herokuapp.com/books/1940026091 to fetch the details of a specific book)
         -->
+
+        <style>
+
+            body{
+                background-color: rgb(122, 107, 107);
+            }
+
+            .card{
+               
+                margin-right: 2rem;
+                background-color: rgb(181, 231, 235);
+            }
+
+            .card-img-top{
+                height: 40%;
+            }
+
+            .card-body{
+                min-height: 10%;
+               
+            }
+
+            
+        </style>
   </head>
 
-  <body></body>
+  <body>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0" id="searchSection">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button onclick="search()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    <div class="container text-center">
+        <h1 class="text-center my-5">Shopping Cart</h1>
+        <div class="row" id="cart-list">
+            <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Book Title</th>
+                    <th scope="col">Book Price</th>
+                    <th><button onclick="deleteAll()" type="button" id="cart-del-all" class="btn btn-secondary">Remove All</button></th>
+                  </tr>
+                </thead>
+              </table>
+        </div>
+
+
+        <div class="row row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6 px-5" id="library-content">
+            <!--  -->
+        </div>
+
+        <div class="row" id="categorized">
+
+        </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  </body>
+  <script src="script.js"></script>
 </html>
