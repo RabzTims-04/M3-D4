@@ -77,7 +77,7 @@ const search = function(){
     let searchButton = document.querySelector('#search-form button')
     console.log(searchButton);
     let searchInputValue = document.querySelector("#search-form input").value 
-        let booksToLoad = bookCollection.filter(book => book.title.includes(searchInputValue))
+        let booksToLoad = bookCollection.filter(book => book.title.toLowerCase().includes(searchInputValue))
         loadBooks(booksToLoad)
 }
 
