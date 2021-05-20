@@ -1,19 +1,17 @@
 let bookCollection = []
-function renderBooks(books){
+function loadBooks(books){
     // if (!whereTo) whereTo = "library-content"
     const parent = document.getElementById("library-content")
-   
-  
-
     parent.innerHTML = books.map(book => `<div class="card col-12 col-md-4 col-lg-2 px-0 my-3" >
             <img class="card-img-top img-fluid" src="${book.img}" alt="Card image cap">
-            <div class="card-body" style ="height:20px;">
+            <div class="card-body position-relative" style ="height:20px;">
             <button type="button" onclick="HideCard()" class="close" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
             <p class="card-title small">${book.title}</p>
             <p class="card-text">${book.price} $</p>
-            <button type="button" id="cart-btn" class="btn btn-secondary">${"Add to cart"}</button>
+            <div class="justify-content-bottom position-absolute button-div">
+            <button type="button" id="cart-btn" class="btn btn-secondary">${"Add to cart"}</button></div>
             </div>
         </div>`)
         .join("")
@@ -75,27 +73,25 @@ function HideCard(){
     })  
 }
 
-window.onload = async function () {
-   
+const search = function(){
+    let searchButton = document.querySelector('#search-form button')
+    console.log(searchButton);
+    let searchInputValue = document.querySelector("#search-form input").value 
+        let booksToLoad = bookCollection.filter(book => book.title.includes(searchInputValue))
+        loadBooks(booksToLoad)
+}
+
+window.onload = function () {   
     fetch("https://striveschool-api.herokuapp.com/books")
         .then(result => result.json()) 
         .then(books => { 
             bookCollection = books          
-            renderBooks(books) 
+            loadBooks(books) 
             console.log(bookCollection); 
         }) 
     }
 
-     function search(){
-        let searchButton = document.querySelector('#searchSection button')
-        console.log(searchButton);
-        let searchBar = document.querySelector("#searchSection input") 
-        console.log(searchBar)        
-            let searchQuery = searchBar.value 
-            let booksToLoad = bookCollection.filter(book => book.title.includes(searchQuery))
-            renderBooks(booksToLoad)
-        
-    }
+   
  
     
    
